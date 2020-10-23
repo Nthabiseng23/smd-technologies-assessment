@@ -46,8 +46,8 @@ class Contact extends CI_Controller {
 		$this->load->model('contact_model');
 
 		$this->load->dbforge();
-		//$this->contact_model->modify_table($data);
-		//$this->contact_model->add_user($content, $data);
+		$this->contact_model->modify_table($data);
+		$this->contact_model->add_user($content, $data);
 		$saved = true;
 
 		if($saved){
@@ -55,7 +55,7 @@ class Contact extends CI_Controller {
 			redirect(base_url('index.php/contact/view_info')); 
 		}else{
 			$this->session->set_flashdata('error_msg', 'Error occured,Try again.');
-			//redirect(base_url('index.php/contact'));
+			redirect(base_url('index.php/contact'));
 		}
 	}
 
